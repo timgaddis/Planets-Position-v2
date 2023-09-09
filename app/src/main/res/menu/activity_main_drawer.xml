@@ -3,18 +3,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/nav_group1"
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_main"
+            android:icon="@drawable/ic_action_home"
+            android:title="@string/action_home" />
+    </group>
+
+    <group
+        android:id="@+id/nav_group2"
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_solar_eclipse"
+            android:icon="@drawable/ic_nav_solar_ecl"
+            android:title="@string/nav_solar_eclipse" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_lunar_eclipse"
+            android:icon="@drawable/ic_nav_lunar_ecl"
+            android:title="@string/nav_lunar_eclipse" />
+        <item
+            android:id="@+id/nav_lunar_occult"
+            android:icon="@drawable/ic_nav_lunar_occ"
+            android:title="@string/nav_lunar_occultion" />
+        <item
+            android:id="@+id/nav_sky_pos"
+            android:icon="@drawable/ic_nav_sky_pos"
+            android:title="@string/nav_sky_position" />
+        <item
+            android:id="@+id/nav_rise_set"
+            android:icon="@drawable/ic_nav_whats_up"
+            android:title="@string/nav_rise_set" />
+    </group>
+
+    <group
+        android:id="@+id/nav_group3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_location"
+            android:icon="@drawable/ic_action_location"
+            android:title="@string/nav_location" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_nav_settings"
+            android:title="@string/action_settings" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_nav_about"
+            android:title="@string/action_about" />
     </group>
 </menu>
