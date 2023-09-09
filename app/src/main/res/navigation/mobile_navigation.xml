@@ -14,4 +14,9 @@
         android:name="planets.position.About"
         android:label="@string/action_about"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_location"
+        android:name="planets.position.location.LocationFragment"
+        android:label="@string/nav_location"
+        tools:layout="@layout/fragment_location" />
 </navigation>

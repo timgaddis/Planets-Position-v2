@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import planets.position.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
-//    private val sharedViewModel: PreferenceViewModel by activityViewModels()
+    private val sharedViewModel: PreferenceViewModel by activityViewModels()
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private lateinit var navController: NavController
