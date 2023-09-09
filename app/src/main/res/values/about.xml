@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_main">Planets Position is a program to calculate the position of the planets
+        in the night sky based on a given location on Earth.\n\n
+
+        License and Copyright\n\n
+
+        Copyright © 2023 Tim Gaddis\n\n
+
+        This program is free software: you can redistribute it and/or modify it
+        under the terms of the GNU General Public License as published by the
+        Free Software Foundation, either version 3 of the License, or (at your
+        option) any later version.\n\n
+
+        This program is distributed in the hope that it will be useful, but
+        WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+        General Public License for more details.\n\n
+
+        You should have received a copy of the GNU General Public License along
+        with this program. If not, see \n
+        http://www.gnu.org/licenses.\n\n
+
+        Feedback can be sent to\n
+        planets.position@gmail.com\n
+        or @planetsposition on Twitter\n\n
+
+        Source code available at GitHub.\n
+        https://git.io/vaG0Q\n\n
+
+        Swiss Ephemeris code is used in this program for planetary position
+        calculations.\n
+        http://www.astro.com/swisseph/swephinfo_e.htm?lang=e\n\n
+
+        Timezone data from TimeZoneDB.\n
+        https://timezonedb.com/\n\n
+
+        World cities database courtesy of SimpleMaps.com.\n
+        https://simplemaps.com/data/world-cities.\n\n
+    </string>
+</resources>
