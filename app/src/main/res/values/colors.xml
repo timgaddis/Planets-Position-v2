@@ -8,6 +8,7 @@
     <color name="button_text">#ffffff</color>
     <color name="button_back">#1d2636</color>
     <color name="text_color">#ffffff</color>
+    <color name="text_color2">#000099</color>
     <color name="text_link_color">#FF03DAC5</color>
     <color name="alt_text_color">#b3ffffff</color>
     <color name="alert_color">#FFFF0000</color>

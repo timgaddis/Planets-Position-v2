@@ -23,12 +23,6 @@
         <item name="android:background">@color/main_back</item>
     </style>
 
-    <style name="datepicker" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="colorControlActivated">@color/planet_set_color</item>
-        <item name="colorAccent">@android:color/white</item>
-        <item name="android:windowBackground">@color/main_back</item>
-    </style>
-
     <style name="SettingsHeader" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/text_color</item>
         <item name="android:textSize">18sp</item>
@@ -48,4 +42,72 @@
         <item name="android:padding">@dimen/data_card</item>
     </style>
 
+    <style name="PickerHeader" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--  Material Date Picker  -->
+    <style name="MaterialCalendarTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorPrimary">@color/button_back</item>
+        <item name="colorSurface">@color/main_back</item>
+        <item name="colorOnSurface">@color/text_color</item>
+        <item name="android:textColor">@color/alt_text_color</item>
+        <item name="materialCalendarHeaderTitle">@style/PickerHeader</item>
+        <item name="materialCalendarStyle">@style/DefaultCalendarStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/TextButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/TextButton</item>
+    </style>
+
+    <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <style name="DefaultCalendarStyle" parent="Widget.MaterialComponents.MaterialCalendar">
+        <item name="daySelectedStyle">@style/DefaultDaySelectedStyle</item>
+    </style>
+
+    <style name="DefaultDaySelectedStyle" parent="Widget.MaterialComponents.MaterialCalendar.Day.Selected">
+        <item name="itemFillColor">@color/jupiter_moon4</item>
+        <item name="itemTextColor">@color/text_color</item>
+    </style>
+
+    <!--  Material Time Picker  -->
+    <style name="MaterialTimeTheme" parent="ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="colorSurface">@color/main_back</item>
+        <item name="colorOnSurface">@color/text_color</item>
+        <item name="materialTimePickerTitleStyle">@style/PickerHeader</item>
+        <item name="materialClockStyle">@style/TimePicker.Clock</item>
+        <item name="materialButtonOutlinedStyle">@style/TimePicker.Button</item>
+        <item name="chipStyle">@style/TimePicker.Chip</item>
+        <item name="imageButtonStyle">@style/TimePicker.ImageButton</item>
+        <item name="borderlessButtonStyle">@style/TextButton</item>
+    </style>
+
+    <!--  Clock face -->
+    <style name="TimePicker.Clock" parent="Widget.MaterialComponents.TimePicker.Clock">
+        <item name="clockFaceBackgroundColor">@color/colorPrimary</item>
+        <item name="clockHandColor">@color/jupiter_moon4</item>
+        <item name="clockNumberTextColor">@color/text_color</item>
+    </style>
+
+    <!-- AM/PM selector -->
+    <style name="TimePicker.Button" parent="Widget.MaterialComponents.TimePicker.Button">
+        <item name="backgroundTint">@color/selector_time_picker_button_outlined_background</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <!-- Time numbers -->
+    <style name="TimePicker.Chip" parent="Widget.MaterialComponents.TimePicker.Display">
+        <item name="chipBackgroundColor">@color/selector_time_picker_clock_text</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
+    <!-- Keyboard icon -->
+    <style name="TimePicker.ImageButton" parent="Widget.MaterialComponents.TimePicker.ImageButton">
+        <item name="iconTint">@color/alt_text_color</item>
+    </style>
 </resources>

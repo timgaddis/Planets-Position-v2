@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
 //        val saturn: Button = binding.buttonSaturn
 
         skyPosition.setOnClickListener {
-//            navController.navigate(R.id.action_nav_main_to_nav_sky_position)
+            navController.navigate(R.id.action_nav_main_to_nav_sky_position)
         }
 
         riseSet.setOnClickListener {

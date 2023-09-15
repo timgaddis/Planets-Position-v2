@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_nav_main_to_nav_location_dialog"
             app:destination="@id/nav_location_dialog" />
+        <action
+            android:id="@+id/action_nav_main_to_nav_sky_position"
+            app:destination="@id/nav_sky_position" />
     </fragment>
     <fragment
         android:id="@+id/nav_about"
@@ -22,7 +25,7 @@
         android:id="@+id/nav_location"
         android:name="planets.position.location.LocationFragment"
         android:label="@string/nav_location"
-        tools:layout="@layout/fragment_location" >
+        tools:layout="@layout/fragment_location">
         <action
             android:id="@+id/action_nav_location_to_nav_manual_location_dialog"
             app:destination="@id/nav_manual_location_dialog" />
@@ -41,7 +44,7 @@
     <dialog
         android:id="@+id/nav_location_dialog"
         android:name="planets.position.location.LocationDialog"
-        android:label="LocationDialog" >
+        android:label="LocationDialog">
         <action
             android:id="@+id/action_nav_location_dialog_to_nav_location"
             app:destination="@id/nav_location" />
@@ -49,7 +52,7 @@
     <dialog
         android:id="@+id/nav_manual_location_dialog"
         android:name="planets.position.location.ManualLocationDialog"
-        android:label="ManualLocationDialog" >
+        android:label="ManualLocationDialog">
         <action
             android:id="@+id/action_nav_manual_location_dialog_to_nav_location"
             app:destination="@id/nav_location" />
@@ -57,7 +60,7 @@
     <dialog
         android:id="@+id/nav_timezone_dialog"
         android:name="planets.position.location.TimeZoneDialog"
-        android:label="TimeZoneDialog" >
+        android:label="TimeZoneDialog">
         <action
             android:id="@+id/action_nav_timezone_dialog_to_nav_location"
             app:destination="@id/nav_location" />
@@ -65,9 +68,31 @@
     <dialog
         android:id="@+id/nav_gps_dialog"
         android:name="planets.position.location.GPSDialog"
-        android:label="GPSDialog" >
+        android:label="GPSDialog">
         <action
             android:id="@+id/action_nav_gps_dialog_to_nav_location"
             app:destination="@id/nav_location" />
     </dialog>
+    <dialog
+        android:id="@+id/nav_planet_dialog"
+        android:name="planets.position.skyposition.PlanetDialog"
+        android:label="PlanetDialog">
+        <action
+            android:id="@+id/action_nav_planet_dialog_to_nav_sky_position"
+            app:destination="@id/nav_sky_position" />
+    </dialog>
+    <fragment
+        android:id="@+id/nav_sky_position"
+        android:name="planets.position.skyposition.SkyPositionFragment"
+        android:label="@string/nav_sky_position"
+        tools:layout="@layout/fragment_sky_position">
+        <action
+            android:id="@+id/action_nav_sky_position_to_nav_planet_dialog"
+            app:destination="@id/nav_planet_dialog" />
+        <action
+            android:id="@+id/action_nav_sky_position_to_nav_main"
+            app:destination="@id/nav_main"
+            app:popUpTo="@id/nav_main"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

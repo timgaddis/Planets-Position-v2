@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_back">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/pos_guide1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <Button
+            android:id="@+id/planetButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:backgroundTint="@color/button_back"
+            android:contentDescription="@string/screen_planet"
+            android:paddingTop="@dimen/data_card"
+            android:paddingBottom="@dimen/data_card"
+            android:textColor="@color/button_text"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/dateButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/button_back"
+            android:contentDescription="@string/screen_date"
+            android:paddingTop="@dimen/data_card"
+            android:paddingBottom="@dimen/data_card"
+            android:textColor="@color/button_text"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toStartOf="@+id/pos_guide1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/planetButton" />
+
+        <Button
+            android:id="@+id/timeButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/button_back"
+            android:contentDescription="@string/screen_time"
+            android:paddingTop="@dimen/data_card"
+            android:paddingBottom="@dimen/data_card"
+            android:textColor="@color/button_text"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/pos_guide1"
+            app:layout_constraintTop_toBottomOf="@+id/planetButton" />
+
+        <View
+            android:id="@+id/pos_view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/divider_color"
+            app:layout_constraintTop_toBottomOf="@+id/timeButton" />
+
+        <TextView
+            android:id="@+id/pos_ra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/data_ra"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toStartOf="@+id/pos_guide1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pos_view1" />
+
+        <TextView
+            android:id="@+id/pos_ra_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/pos_ra"
+            app:layout_constraintStart_toStartOf="@+id/pos_ra"
+            app:layout_constraintTop_toBottomOf="@+id/pos_ra" />
+
+        <TextView
+            android:id="@+id/pos_dec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/data_dec"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/pos_guide1"
+            app:layout_constraintTop_toBottomOf="@+id/pos_view1" />
+
+        <TextView
+            android:id="@+id/pos_dec_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/pos_dec"
+            app:layout_constraintStart_toStartOf="@+id/pos_dec"
+            app:layout_constraintTop_toBottomOf="@+id/pos_dec" />
+
+        <TextView
+            android:id="@+id/pos_az"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/data_az"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toStartOf="@+id/pos_guide1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pos_ra_text" />
+
+        <TextView
+            android:id="@+id/pos_az_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/pos_az"
+            app:layout_constraintStart_toStartOf="@+id/pos_az"
+            app:layout_constraintTop_toBottomOf="@+id/pos_az" />
+
+        <TextView
+            android:id="@+id/pos_alt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/data_alt"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/pos_guide1"
+            app:layout_constraintTop_toBottomOf="@+id/pos_dec_text" />
+
+        <TextView
+            android:id="@+id/pos_alt_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/pos_alt"
+            app:layout_constraintStart_toStartOf="@+id/pos_alt"
+            app:layout_constraintTop_toBottomOf="@+id/pos_alt" />
+
+        <TextView
+            android:id="@+id/pos_dis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/data_dis"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toStartOf="@+id/pos_guide1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pos_az_text" />
+
+        <TextView
+            android:id="@+id/pos_dis_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/pos_dis"
+            app:layout_constraintStart_toStartOf="@+id/pos_dis"
+            app:layout_constraintTop_toBottomOf="@+id/pos_dis" />
+
+        <TextView
+            android:id="@+id/pos_mag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/data_mag"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/pos_guide1"
+            app:layout_constraintTop_toBottomOf="@+id/pos_alt_text" />
+
+        <TextView
+            android:id="@+id/pos_mag_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/pos_mag"
+            app:layout_constraintStart_toStartOf="@+id/pos_mag"
+            app:layout_constraintTop_toBottomOf="@+id/pos_mag" />
+
+        <TextView
+            android:id="@+id/pos_riseTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/data_rise"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toStartOf="@+id/pos_guide1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pos_dis_text" />
+
+        <TextView
+            android:id="@+id/pos_riseTime_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/pos_riseTime"
+            app:layout_constraintStart_toStartOf="@+id/pos_riseTime"
+            app:layout_constraintTop_toBottomOf="@+id/pos_riseTime" />
+
+        <TextView
+            android:id="@+id/pos_setTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/data_set"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/pos_guide1"
+            app:layout_constraintTop_toBottomOf="@+id/pos_mag_text" />
+
+        <TextView
+            android:id="@+id/pos_setTime_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/pos_setTime"
+            app:layout_constraintStart_toStartOf="@+id/pos_setTime"
+            app:layout_constraintTop_toBottomOf="@+id/pos_setTime" />
+
+        <TextView
+            android:id="@+id/pos_transitTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/data_transit"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pos_riseTime_text" />
+
+        <TextView
+            android:id="@+id/pos_transitTime_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/pos_transitTime"
+            app:layout_constraintStart_toStartOf="@+id/pos_transitTime"
+            app:layout_constraintTop_toBottomOf="@+id/pos_transitTime" />
+
+        <TextView
+            android:id="@+id/pos_below_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/below_hor"
+            android:textColor="@color/alert_color"
+            android:textSize="@dimen/label_text"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pos_transitTime_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
