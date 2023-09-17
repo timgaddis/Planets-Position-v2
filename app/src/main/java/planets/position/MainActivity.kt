@@ -36,10 +36,14 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_main,
-                R.id.nav_about,
-                R.id.nav_location,
+//                R.id.nav_solar_eclipse,
+//                R.id.nav_lunar_eclipse,
+//                R.id.nav_lunar_occult,
                 R.id.nav_rise_set,
-                R.id.nav_sky_position
+                R.id.nav_sky_position,
+                R.id.nav_location,
+                R.id.nav_settings,
+                R.id.nav_about
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

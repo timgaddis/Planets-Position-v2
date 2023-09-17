@@ -120,4 +120,21 @@
         android:name="planets.position.skyposition.LivePositionFragment"
         android:label="@string/action_live"
         tools:layout="@layout/fragment_live_position"/>
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="planets.position.settings.SettingsFragment"
+        android:label="@string/action_settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_nav_settings_to_nav_settings_dialog"
+            app:destination="@id/nav_settings_dialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/nav_settings_dialog"
+        android:name="planets.position.settings.SettingsDialogFragment"
+        android:label="@string/action_settings" >
+        <action
+            android:id="@+id/action_nav_settings_dialog_to_nav_settings"
+            app:destination="@id/nav_settings" />
+    </dialog>
 </navigation>

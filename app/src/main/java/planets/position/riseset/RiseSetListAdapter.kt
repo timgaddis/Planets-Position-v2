@@ -58,7 +58,7 @@ class RiseSetListAdapter(private val onClick: (Planet) -> Unit) :
             rowImage.setImageResource(planet.cNumber)
             rowName.text = planet.cName
             rowAz.text = pf?.formatAZ(planet.cAz)
-            rowAlt.text = pf?.formatAZ(planet.cAlt)
+            rowAlt.text = pf?.formatALT(planet.cAlt)
             val time: Double = if (planet.cRise > 0.0) {
                 rowRiseSet.setText(R.string.data_set)
                 planet.cSetTime
