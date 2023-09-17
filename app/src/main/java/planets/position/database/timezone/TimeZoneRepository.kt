@@ -8,6 +8,10 @@ class TimeZoneRepository(private var timeZoneDAO: TimeZoneDAO) {
         return timeZoneDAO.getZoneOffset(zone, time)
     }
 
+    fun getZone(zone: String, time: Long): TimeZone {
+        return timeZoneDAO.getZone(zone, time)
+    }
+
     fun getCounrty(country: String): LiveData<Country> {
         return timeZoneDAO.getCountry(country)
     }

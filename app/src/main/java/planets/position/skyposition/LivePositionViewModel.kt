@@ -3,34 +3,34 @@ package planets.position.skyposition
 import android.app.Application
 import android.content.SharedPreferences
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.createSavedStateHandle
-import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.preference.PreferenceManager
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import planets.position.PlanetApplication
-import planets.position.database.timezone.TimeZone
 import planets.position.database.timezone.TimeZoneRepository
 import planets.position.util.JDUTC
 import planets.position.util.RiseSetTransit
+import java.math.RoundingMode
+import java.text.DecimalFormat
 import java.util.Calendar
 
-class SkyPositionViewModel(
+class LivePositionViewModel(
     application: Application,
     private val timeZoneRepository: TimeZoneRepository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private var zone: LiveData<TimeZone>
     private var zoneName: String = ""
     private var g = DoubleArray(3)
+    private var planetData: MutableLiveData<PlanetData> = MutableLiveData()
     private val jdUTC: JDUTC = JDUTC()
     private var riseSetTransit: RiseSetTransit
     private var settings: SharedPreferences
@@ -41,92 +41,56 @@ class SkyPositionViewModel(
         g[0] = settings.getFloat("longitude", 0f).toDouble()
         g[2] = settings.getFloat("altitude", 0f).toDouble()
         zoneName = settings.getString("zoneName", "").toString()
-
-        zone = savedStateHandle.getLiveData("skyTime", 0L).switchMap { x ->
-            timeZoneRepository.getZoneOffset(zoneName, x)
-        }
         riseSetTransit = RiseSetTransit(g)
     }
 
     // c function prototypes
-    private external fun planetPosData(
-        d1: Double, d2: Double, p: Int, loc: DoubleArray
-    ): DoubleArray?
-
-    fun saveTime(time: Long) {
-        savedStateHandle["skyTime"] = time
-    }
-
-    fun getZone(): LiveData<TimeZone> {
-        return zone
-    }
-
-    fun setOffset(offset: Double) {
-        savedStateHandle["offset"] = offset
-    }
+    private external fun planetLiveData(d2: Double, p: Int, loc: DoubleArray): DoubleArray?
 
     fun setPlanet(p: Int) {
         savedStateHandle["skyPlanet"] = p
-    }
-
-    fun getPlanetData(): LiveData<PlanetData> {
-
-        val off = savedStateHandle.getLiveData("offset", -13.0)
-        val planet = savedStateHandle.getLiveData("skyPlanet", -1)
-
-        val result = MediatorLiveData<PlanetData>()
-
-        result.addSource(off) {
-            result.value = computePlanet(off, planet)
-        }
-        result.addSource(planet) {
-            result.value = computePlanet(off, planet)
-        }
-
-        return result
-    }
-
-    private fun computePlanet(offset: LiveData<Double>, planet: LiveData<Int>): PlanetData? {
-
-        val p = planet.value
-        val off = offset.value
-        if (p != null && p < 0)
-            return null
-        if (off != null && off < -12.0)
-            return null
-        var pld: PlanetData? = null
-        val tt = savedStateHandle["skyTime"] ?: 0L
-        Log.d("PlanetPosition", "computePlanet off:${off} tt:${tt}")
-        val cal = Calendar.getInstance()
-        cal.clear()
-        cal.timeInMillis = tt * 1000L
-//        Log.d("PlanetsPosition", "computePlanet,cal1:${cal.time},${off!! * -60.0}")
-        cal.add(Calendar.MINUTE, (off!! * -60.0).toInt())
-//        Log.d("PlanetsPosition", "computePlanet,cal2:${cal.time}")
-        val t = jdUTC.utcjd(
-            cal[Calendar.MONTH] + 1,
-            cal[Calendar.DAY_OF_MONTH], cal[Calendar.YEAR],
-            cal[Calendar.HOUR_OF_DAY], cal[Calendar.MINUTE],
-            cal[Calendar.SECOND].toDouble()
-        )
-        viewModelScope.launch {
-            val pd = computeLocation(p!!, t!!)
-            withContext(Dispatchers.Main) {
-                pld = pd
+        viewModelScope.launch(Dispatchers.Default) {
+            while (true) {
+                val c = Calendar.getInstance()
+                val tz = timeZoneRepository.getZone(zoneName, c.timeInMillis / 1000)
+                val df = DecimalFormat("##.#")
+                df.roundingMode = RoundingMode.DOWN
+                val offset = df.format(tz.gmt_offset / 3600.0).toDouble()
+                c.add(Calendar.MINUTE, (offset * -60.0).toInt())
+                val t = jdUTC.utcjd(
+                    c[Calendar.MONTH] + 1,
+                    c[Calendar.DAY_OF_MONTH], c[Calendar.YEAR],
+                    c[Calendar.HOUR_OF_DAY], c[Calendar.MINUTE],
+                    c[Calendar.SECOND].toDouble()
+                )
+                // subtract gmt offset
+                c.add(Calendar.MINUTE, (offset * -60.0 * -1.0).toInt())
+                val pd = computeLocation(p, t!!, c.timeInMillis, offset)
+                withContext(Dispatchers.Main) {
+                    planetData.value = pd!!
+                }
+                delay(1000)
             }
         }
-//        Log.d("Planets Position", "computePlanet:${pld}")
-        return pld
     }
 
-    private suspend fun computeLocation(planetNum: Int, time: DoubleArray): PlanetData? {
-//        Log.d("Planets Position", "in computeLocation:[${time[0]},${time[1]}]")
+    fun getPlanetData(): MutableLiveData<PlanetData> {
+        return planetData
+    }
+
+    private suspend fun computeLocation(
+        planetNum: Int,
+        time: DoubleArray,
+        cTime: Long,
+        offset: Double
+    ): PlanetData? {
+        Log.d("Planets Position", "in live computeLocation:[${time[0]},${time[1]}]")
         var ra: Double
         var t: Double
         val d: Double = time[1]
         val rst = DoubleArray(3)
 
-        val data: DoubleArray? = planetPosData(time[0], time[1], planetNum, g)
+        val data: DoubleArray? = planetLiveData(d, planetNum, g)
         if (data == null) {
             Log.e("Position error", "planetPosData error")
             return null
@@ -157,7 +121,7 @@ class SkyPositionViewModel(
         rst[2] = t
 
         return PlanetData(
-            "",
+            offset.toString(),
             planetNum,
             if (data[4] > 0) 1 else -1,
             ra,
@@ -169,7 +133,7 @@ class SkyPositionViewModel(
             rst[1],
             rst[0],
             rst[2],
-            0
+            cTime
         )
     }
 
@@ -184,13 +148,11 @@ class SkyPositionViewModel(
                 modelClass: Class<T>,
                 extras: CreationExtras
             ): T {
-                // Get the Application object from extras
                 val application =
                     checkNotNull(extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])
-                // Create a SavedStateHandle for this ViewModel from extras
                 val savedStateHandle = extras.createSavedStateHandle()
 
-                return SkyPositionViewModel(
+                return LivePositionViewModel(
                     application,
                     (application as PlanetApplication).timeZoneRepository,
                     savedStateHandle

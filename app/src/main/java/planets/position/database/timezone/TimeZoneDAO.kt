@@ -9,6 +9,9 @@ interface TimeZoneDAO {
     @Query("SELECT * FROM time_zone WHERE zone_name = :zone AND time_start <= :time ORDER BY time_start DESC LIMIT 1")
     fun getZoneOffset(zone: String, time: Long): LiveData<TimeZone>
 
+    @Query("SELECT * FROM time_zone WHERE zone_name = :zone AND time_start <= :time ORDER BY time_start DESC LIMIT 1")
+    fun getZone(zone: String, time: Long): TimeZone
+
     @Query("SELECT * FROM country WHERE country_name = :country")
     fun getCountry(country: String): LiveData<Country>
 

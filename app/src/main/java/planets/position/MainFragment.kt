@@ -27,7 +27,6 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        Log.d("PlanetsPosition", "Main onCreateView")
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -44,7 +43,7 @@ class MainFragment : Fragment() {
         }
 
         riseSet.setOnClickListener {
-//            navController.navigate(R.id.action_nav_main_to_nav_rise_set)
+            navController.navigate(R.id.action_nav_main_to_nav_rise_set)
         }
 
         return root

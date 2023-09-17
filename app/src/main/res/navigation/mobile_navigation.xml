@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_nav_main_to_nav_sky_position"
             app:destination="@id/nav_sky_position" />
+        <action
+            android:id="@+id/action_nav_main_to_nav_rise_set"
+            app:destination="@id/nav_rise_set" />
     </fragment>
     <fragment
         android:id="@+id/nav_about"
@@ -94,5 +97,27 @@
             app:destination="@id/nav_main"
             app:popUpTo="@id/nav_main"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nav_sky_position_to_nav_live_position"
+            app:destination="@id/nav_live_position" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_rise_set_data"
+        android:name="planets.position.riseset.RiseSetDataFragment"
+        android:label="@string/nav_rise_set"
+        tools:layout="@layout/fragment_rise_set_data"/>
+    <fragment
+        android:id="@+id/nav_rise_set"
+        android:name="planets.position.riseset.RiseSetFragment"
+        android:label="@string/nav_rise_set"
+        tools:layout="@layout/fragment_rise_set" >
+        <action
+            android:id="@+id/action_nav_rise_set_to_nav_rise_set_data"
+            app:destination="@id/nav_rise_set_data" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_live_position"
+        android:name="planets.position.skyposition.LivePositionFragment"
+        android:label="@string/action_live"
+        tools:layout="@layout/fragment_live_position"/>
 </navigation>

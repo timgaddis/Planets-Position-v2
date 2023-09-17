@@ -12,5 +12,6 @@ data class PlanetData(
     val magnitude: Double,
     val setTime: Double,
     val riseTime: Double,
-    val transit: Double
+    val transit: Double,
+    val time: Long
 )

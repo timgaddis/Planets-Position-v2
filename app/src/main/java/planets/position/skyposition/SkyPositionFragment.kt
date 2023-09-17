@@ -248,10 +248,10 @@ class SkyPositionFragment : Fragment() {
                 if (menuItem.itemId == R.id.action_live_position) {
                     val bundle = Bundle()
                     bundle.putInt("live_planet", planetNum)
-//                    navController.navigate(
-//                        R.id.action_nav_sky_position_to_nav_live_position,
-//                        bundle
-//                    )
+                    navController.navigate(
+                        R.id.action_nav_sky_position_to_nav_live_position,
+                        bundle
+                    )
                     return true
                 }
                 return false
