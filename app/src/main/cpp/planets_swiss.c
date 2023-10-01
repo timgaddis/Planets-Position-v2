@@ -916,3 +916,124 @@ Java_planets_position_skyposition_LivePositionViewModel_planetLiveData(JNIEnv *e
         return result;
     }
 }
+
+JNIEXPORT jdoubleArray JNICALL
+Java_planets_position_solar_SolarEclipseViewModel_solarDataLocal(JNIEnv *env, jobject thiz,
+                                                                 jdouble d_ut, jdoubleArray loc,
+                                                                 jint back) {
+    char serr[256];
+    double g[3], attr[20], tret[10], az[6], x2[6], rval;
+    int retval, i;
+    int iflag = SEFLG_MOSEPH | SEFLG_EQUATORIAL | SEFLG_TOPOCTR;
+    jdoubleArray result;
+
+    result = (*env)->NewDoubleArray(env, 19);
+    if (result == NULL) {
+        __android_log_print(ANDROID_LOG_ERROR, "solarDataLocal",
+                            "JNI ERROR NewDoubleArray: out of memory error");
+        return NULL; /* out of memory error thrown */
+    }
+
+    swe_set_ephe_path(NULL);
+
+    (*env)->GetDoubleArrayRegion(env, loc, 0, 3, g);
+    swe_set_topo(g[0], g[1], g[2]);
+
+    retval = swe_sol_eclipse_when_loc(d_ut, SEFLG_MOSEPH, g, tret, attr, back,
+                                      serr);
+    if (retval == ERR) {
+        __android_log_print(ANDROID_LOG_ERROR, "solarDataLocal",
+                            "JNI ERROR swe_sol_eclipse_when_loc: %-256s", serr);
+        swe_close();
+        return NULL;
+    } else {
+        // rotate azimuth of sun 180 degrees
+        attr[4] += 180;
+        if (attr[4] >= 360)
+            attr[4] -= 360;
+        // calculate moon position at max eclipse
+        i = swe_calc_ut(tret[0], 1, iflag, x2, serr);
+        if (i == ERR) {
+            __android_log_print(ANDROID_LOG_ERROR, "solarDataLocal",
+                                "JNI ERROR swe_calc_ut: %-256s", serr);
+            swe_close();
+            return NULL;
+        }
+        swe_azalt(tret[0], SE_EQU2HOR, g, 0, 0, x2, az);
+        // rotate azimuth of moon 180 degrees
+        az[0] += 180;
+        if (az[0] > 360)
+            az[0] -= 360;
+
+        rval = retval * 1.0;
+        swe_close();
+
+        // move from the temp structure to the java structure
+        (*env)->SetDoubleArrayRegion(env, result, 0, 1, &rval);
+        (*env)->SetDoubleArrayRegion(env, result, 1, 5, tret);
+        (*env)->SetDoubleArrayRegion(env, result, 6, 11, attr);
+        (*env)->SetDoubleArrayRegion(env, result, 17, 2, az);
+
+        return result;
+    }
+}
+
+JNIEXPORT jdoubleArray JNICALL
+Java_planets_position_solar_SolarEclipseViewModel_solarDataGlobal(JNIEnv *env, jobject thiz,
+                                                                  jdouble d_ut, jint back) {
+    char serr[256];
+    double tret[10], rval;
+    int retval;
+    jdoubleArray result;
+
+    result = (*env)->NewDoubleArray(env, 9);
+    if (result == NULL) {
+        __android_log_print(ANDROID_LOG_ERROR, "solarDataGlobal",
+                            "JNI ERROR NewDoubleArray: out of memory error");
+        return NULL; /* out of memory error thrown */
+    }
+
+    swe_set_ephe_path(NULL);
+
+    retval = swe_sol_eclipse_when_glob(d_ut, SEFLG_MOSEPH, 0, tret, back, serr);
+    if (retval == ERR) {
+        __android_log_print(ANDROID_LOG_ERROR, "solarDataGlobal",
+                            "JNI ERROR swe_sol_eclipse_when_glob: %-256s", serr);
+        swe_close();
+        return NULL;
+    }
+
+    rval = retval * 1.0;
+    swe_close();
+
+    // move from the temp structure to the java structure
+    (*env)->SetDoubleArrayRegion(env, result, 0, 1, &rval);
+    (*env)->SetDoubleArrayRegion(env, result, 1, 8, tret);
+
+    return result;
+}
+
+JNIEXPORT jdoubleArray JNICALL
+Java_planets_position_solar_SolarEclipseMapViewModel_solarMapPos(JNIEnv *env, jobject thiz,
+                                                                 jdouble d_ut) {
+    char serr[256];
+    double attr[20], g[2];
+    jdoubleArray result;
+
+    result = (*env)->NewDoubleArray(env, 2);
+    if (result == NULL) {
+        __android_log_print(ANDROID_LOG_ERROR, "solarMapPos",
+                            "JNI ERROR NewDoubleArray: out of memory error");
+        return NULL; /* out of memory error thrown */
+    }
+
+    swe_set_ephe_path(NULL);
+
+    swe_sol_eclipse_where(d_ut, SEFLG_MOSEPH, g, attr, serr);
+    swe_close();
+
+    // move from the temp structure to the java structure
+    (*env)->SetDoubleArrayRegion(env, result, 0, 2, g);
+
+    return result;
+}

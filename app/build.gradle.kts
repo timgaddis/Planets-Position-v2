@@ -2,13 +2,14 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
     namespace = "planets.position"
     compileSdk = 33
     buildToolsVersion = "33.0.2"
-    ndkVersion = "25.2.9519653"
+    ndkVersion = "26.0.10792818"
 
     defaultConfig {
         applicationId = "planets.position"
@@ -48,7 +49,7 @@ android {
     externalNativeBuild {
         cmake {
             path = file("src/main/cpp/CMakeLists.txt")
-            version = "3.27.5"
+            version = "3.27.6"
         }
     }
 }
@@ -59,6 +60,7 @@ dependencies {
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     // Lifecycle
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
@@ -72,4 +74,5 @@ dependencies {
     ksp("androidx.room:room-compiler:2.5.2")
     // Maps
     implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
 }

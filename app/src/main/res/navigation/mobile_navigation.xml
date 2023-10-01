@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_nav_main_to_nav_rise_set"
             app:destination="@id/nav_rise_set" />
+        <action
+            android:id="@+id/action_nav_main_to_nav_solar_eclipse"
+            app:destination="@id/nav_solar_eclipse" />
     </fragment>
     <fragment
         android:id="@+id/nav_about"
@@ -137,4 +140,27 @@
             android:id="@+id/action_nav_settings_dialog_to_nav_settings"
             app:destination="@id/nav_settings" />
     </dialog>
+    <fragment
+        android:id="@+id/nav_solar_eclipse"
+        android:name="planets.position.solar.SolarEclipseFragment"
+        android:label="@string/nav_solar_eclipse"
+        tools:layout="@layout/fragment_solar_eclipse" >
+        <action
+            android:id="@+id/action_nav_solar_eclipse_to_nav_solar_eclipse_data"
+            app:destination="@id/nav_solar_eclipse_data" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_solar_eclipse_data"
+        android:name="planets.position.solar.SolarEclipseDataFragment"
+        android:label="@string/nav_solar_eclipse"
+        tools:layout="@layout/fragment_solar_eclipse_data">
+        <action
+            android:id="@+id/action_nav_solar_eclipse_data_to_nav_solar_eclipse_map"
+            app:destination="@id/nav_solar_eclipse_map" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_solar_eclipse_map"
+        android:name="planets.position.solar.SolarEclipseMapFragment"
+        android:label="@string/title_activity_solar_eclipse_map"
+        tools:layout="@layout/fragment_solar_eclipse_map" />
 </navigation>
