@@ -20,6 +20,15 @@ interface LunarDAO {
     @Query("SELECT * FROM lunar_table WHERE penumbralBegin >= :date ORDER BY penumbralBegin")
     fun getLunarEclipseList(date: Double): Flow<List<Lunar>>
 
+    @Query("SELECT * FROM lunar_table ORDER BY penumbralBegin")
+    fun getLunarEclipseList(): Flow<List<Lunar>>
+
+    @Query("SELECT * FROM lunar_table ORDER BY penumbralBegin LIMIT 1")
+    fun getFirstEclipse(): Lunar
+
+    @Query("SELECT * FROM lunar_table ORDER BY penumbralBegin DESC LIMIT 1")
+    fun getLastEclipse(): Lunar
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(occult: Occult)
 

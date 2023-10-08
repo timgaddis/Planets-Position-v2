@@ -10,6 +10,7 @@ data class Lunar(
     var localType: Int,
     var globalType: Int,
     var local: Int,
+    var offset: Double,
     var umbralMag: Double,
     var penumbralMag: Double,
     var moonAz: Double,

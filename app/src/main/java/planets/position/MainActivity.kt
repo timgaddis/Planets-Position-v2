@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_main,
                 R.id.nav_solar_eclipse,
-//                R.id.nav_lunar_eclipse,
+                R.id.nav_lunar_eclipse,
 //                R.id.nav_lunar_occult,
                 R.id.nav_rise_set,
                 R.id.nav_sky_position,

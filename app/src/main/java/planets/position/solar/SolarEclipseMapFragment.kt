@@ -93,4 +93,9 @@ class SolarEclipseMapFragment : Fragment() {
             childFragmentManager.findFragmentById(binding.map.id) as SupportMapFragment
         mapFragment.getMapAsync(callback)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

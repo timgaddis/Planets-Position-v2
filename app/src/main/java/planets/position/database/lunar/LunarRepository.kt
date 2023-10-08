@@ -12,6 +12,18 @@ class LunarRepository(private val lunarDAO: LunarDAO) {
         return lunarDAO.getLunarEclipseList(date)
     }
 
+    fun getLunarEclipseList(): Flow<List<Lunar>> {
+        return lunarDAO.getLunarEclipseList()
+    }
+
+    fun getFirstEclipse(): Lunar {
+        return lunarDAO.getFirstEclipse()
+    }
+
+    fun getLastEclipse(): Lunar {
+        return lunarDAO.getLastEclipse()
+    }
+
     suspend fun insertLunarEclipse(lunar: Lunar) {
         lunarDAO.insert(lunar)
     }
