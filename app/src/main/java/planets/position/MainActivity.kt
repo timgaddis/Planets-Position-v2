@@ -2,7 +2,6 @@ package planets.position
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -13,7 +12,6 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.preference.PreferenceManager
 import com.google.android.material.navigation.NavigationView
 import planets.position.databinding.ActivityMainBinding
-import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_main,
                 R.id.nav_solar_eclipse,
                 R.id.nav_lunar_eclipse,
-//                R.id.nav_lunar_occult,
+                R.id.nav_lunar_occult,
                 R.id.nav_rise_set,
                 R.id.nav_sky_position,
                 R.id.nav_location,
@@ -53,19 +51,19 @@ class MainActivity : AppCompatActivity() {
         loadLocation()
 
         if (latitude < -90.0) {
-//            navController.navigate(R.id.action_nav_main_to_nav_location_dialog)
-            Toast.makeText(this, "main lat < -90.0", Toast.LENGTH_LONG).show()
-            // sample data for Denver, CO
-            with(settings.edit()) {
-                putFloat("latitude", 39.707165F)
-                putFloat("longitude", -104.862030F)
-                putFloat("altitude", 1649.7F)
-                putFloat("offset", -6.0F)
-                putString("zoneName", "America/Denver")
-                putLong("date", Calendar.getInstance().timeInMillis)
-                putBoolean("newLocation", true)
-                apply()
-            }
+            navController.navigate(R.id.action_nav_main_to_nav_location_dialog)
+//            Toast.makeText(this, "main lat < -90.0", Toast.LENGTH_LONG).show()
+//            // sample data for Denver, CO
+//            with(settings.edit()) {
+//                putFloat("latitude", 39.707165F)
+//                putFloat("longitude", -104.862030F)
+//                putFloat("altitude", 1649.7F)
+//                putFloat("offset", -6.0F)
+//                putString("zoneName", "America/Denver")
+//                putLong("date", Calendar.getInstance().timeInMillis)
+//                putBoolean("newLocation", true)
+//                apply()
+//            }
         }
     }
 

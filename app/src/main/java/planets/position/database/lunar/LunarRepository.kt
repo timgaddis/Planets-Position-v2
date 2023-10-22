@@ -40,6 +40,18 @@ class LunarRepository(private val lunarDAO: LunarDAO) {
         return lunarDAO.getLunarOccultList(date)
     }
 
+    fun getLunarOccultList(): Flow<List<Occult>> {
+        return lunarDAO.getLunarOccultList()
+    }
+
+    fun getFirstOccult(): Occult {
+        return lunarDAO.getFirstOccult()
+    }
+
+    fun getLastOccult(): Occult {
+        return lunarDAO.getLastOccult()
+    }
+
     fun insertLunarOccult(occult: Occult) {
         lunarDAO.insert(occult)
     }

@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_nav_main_to_nav_lunar_eclipse"
             app:destination="@id/nav_lunar_eclipse" />
+        <action
+            android:id="@+id/action_nav_main_to_nav_lunar_occult"
+            app:destination="@id/nav_lunar_occult" />
     </fragment>
     <fragment
         android:id="@+id/nav_about"
@@ -180,4 +183,18 @@
         android:name="planets.position.lunar.eclipse.LunarEclipseDataFragment"
         android:label="@string/nav_lunar_eclipse"
         tools:layout="@layout/fragment_lunar_eclipse_data"/>
+    <fragment
+        android:id="@+id/nav_lunar_occult"
+        android:name="planets.position.lunar.occult.LunarOccultFragment"
+        android:label="@string/nav_lunar_occultion"
+        tools:layout="@layout/fragment_lunar_occult" >
+        <action
+            android:id="@+id/action_nav_lunar_occult_to_nav_lunar_occult_data"
+            app:destination="@id/nav_lunar_occult_data" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_lunar_occult_data"
+        android:name="planets.position.lunar.occult.LunarOccultDataFragment"
+        android:label="LunarOccultDataFragment"
+        tools:layout="@layout/fragment_lunar_occult_data"/>
 </navigation>

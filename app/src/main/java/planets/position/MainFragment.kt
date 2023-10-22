@@ -32,11 +32,9 @@ class MainFragment : Fragment() {
 
         val solarEclipse: Button = binding.buttonSEMain
         val lunarEclipse: Button = binding.buttonLEMain
-//        val lunarOccult: Button = binding.buttonLOMain
+        val lunarOccult: Button = binding.buttonLOMain
         val skyPosition: Button = binding.buttonSky
         val riseSet: Button = binding.buttonRiseSet
-//        val jupiter: Button = binding.buttonJupiter
-//        val saturn: Button = binding.buttonSaturn
 
         skyPosition.setOnClickListener {
             navController.navigate(R.id.action_nav_main_to_nav_sky_position)
@@ -52,6 +50,10 @@ class MainFragment : Fragment() {
 
         lunarEclipse.setOnClickListener {
             navController.navigate(R.id.action_nav_main_to_nav_lunar_eclipse)
+        }
+
+        lunarOccult.setOnClickListener {
+            navController.navigate(R.id.action_nav_main_to_nav_lunar_occult)
         }
 
         return root

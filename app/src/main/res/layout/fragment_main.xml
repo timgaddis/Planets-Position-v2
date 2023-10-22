@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/main_back">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".5" />
-
     <Button
         android:id="@+id/buttonSEMain"
         android:layout_width="0dp"
@@ -95,33 +88,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSky" />
-
-    <Button
-        android:id="@+id/buttonJupiter"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/button_back"
-        android:text="@string/jupiter_moon0"
-        android:textColor="@color/button_text"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRiseSet" />
-
-    <Button
-        android:id="@+id/buttonSaturn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/button_back"
-        android:text="@string/saturn_moon0"
-        android:textColor="@color/button_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRiseSet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

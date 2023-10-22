@@ -10,6 +10,7 @@ data class Occult(
     var localType: Int,
     var globalType: Int,
     var local: Int,
+    var offset: Double,
     var localMax: Double,
     var localFirst: Double,
     var localSecond: Double,

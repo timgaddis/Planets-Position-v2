@@ -35,9 +35,18 @@ interface LunarDAO {
     @Query("DELETE FROM occult_table")
     fun deleteAllOccult()
 
+    @Query("SELECT * FROM occult_table WHERE id = :id")
+    fun getLunarOccult(id: Int): Flow<Occult>
+
     @Query("SELECT * FROM occult_table WHERE globalBegin >= :date ORDER BY globalBegin")
     fun getLunarOccultList(date: Double): Flow<List<Occult>>
 
-    @Query("SELECT * FROM occult_table WHERE id = :id")
-    fun getLunarOccult(id: Int): Flow<Occult>
+    @Query("SELECT * FROM occult_table ORDER BY occultPlanet, globalBegin")
+    fun getLunarOccultList(): Flow<List<Occult>>
+
+    @Query("SELECT * FROM occult_table ORDER BY globalBegin LIMIT 1")
+    fun getFirstOccult(): Occult
+
+    @Query("SELECT * FROM occult_table ORDER BY globalBegin DESC LIMIT 1")
+    fun getLastOccult(): Occult
 }
