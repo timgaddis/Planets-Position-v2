@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 interface SolarDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(solar: Solar?)
+    suspend fun insert(solar: Solar)
 
     @Query("DELETE FROM solar_table")
     suspend fun deleteAll()

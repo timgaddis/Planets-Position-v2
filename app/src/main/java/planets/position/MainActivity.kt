@@ -52,18 +52,6 @@ class MainActivity : AppCompatActivity() {
 
         if (latitude < -90.0) {
             navController.navigate(R.id.action_nav_main_to_nav_location_dialog)
-//            Toast.makeText(this, "main lat < -90.0", Toast.LENGTH_LONG).show()
-//            // sample data for Denver, CO
-//            with(settings.edit()) {
-//                putFloat("latitude", 39.707165F)
-//                putFloat("longitude", -104.862030F)
-//                putFloat("altitude", 1649.7F)
-//                putFloat("offset", -6.0F)
-//                putString("zoneName", "America/Denver")
-//                putLong("date", Calendar.getInstance().timeInMillis)
-//                putBoolean("newLocation", true)
-//                apply()
-//            }
         }
     }
 

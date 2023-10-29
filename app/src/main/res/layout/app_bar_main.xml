@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/button_back"
             app:popupTheme="@style/Theme.PlanetsPosition.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>

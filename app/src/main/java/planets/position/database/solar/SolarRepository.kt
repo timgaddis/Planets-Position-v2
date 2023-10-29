@@ -8,20 +8,12 @@ class SolarRepository(private val solarDAO: SolarDAO) {
         return solarDAO.getSolarEclipseLive(id)
     }
 
-    fun getSolarEclipse(id: Int): Solar {
-        return solarDAO.getSolarEclipse(id)
-    }
-
     fun getFirstEclipse(): Solar {
         return solarDAO.getFirstEclipse()
     }
 
     fun getLastEclipse(): Solar {
         return solarDAO.getLastEclipse()
-    }
-
-    fun getSolarEclipseList(date: Double): Flow<List<Solar>> {
-        return solarDAO.getSolarEclipseList(date)
     }
 
     fun getSolarEclipseList(): Flow<List<Solar>> {

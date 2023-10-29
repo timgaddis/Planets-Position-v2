@@ -60,7 +60,7 @@ dependencies {
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("com.google.android.material:material:1.10.0")
-    implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     // Lifecycle
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
@@ -69,10 +69,10 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
     // Room database
-    implementation("androidx.room:room-runtime:2.5.2")
-    implementation("androidx.room:room-ktx:2.5.2")
-    ksp("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-runtime:2.6.0")
+    implementation("androidx.room:room-ktx:2.6.0")
+    ksp("androidx.room:room-compiler:2.6.0")
     // Maps
     implementation("com.google.android.gms:play-services-location:21.0.1")
-    implementation("com.google.android.gms:play-services-maps:18.1.0")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
 }

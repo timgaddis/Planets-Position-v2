@@ -8,10 +8,6 @@ class LunarRepository(private val lunarDAO: LunarDAO) {
         return lunarDAO.getLunarEclipse(id)
     }
 
-    fun getLunarEclipseList(date: Double): Flow<List<Lunar>> {
-        return lunarDAO.getLunarEclipseList(date)
-    }
-
     fun getLunarEclipseList(): Flow<List<Lunar>> {
         return lunarDAO.getLunarEclipseList()
     }
@@ -34,10 +30,6 @@ class LunarRepository(private val lunarDAO: LunarDAO) {
 
     fun getLunarOccult(id: Int): Flow<Occult> {
         return lunarDAO.getLunarOccult(id)
-    }
-
-    fun getLunarOccultList(date: Double): Flow<List<Occult>> {
-        return lunarDAO.getLunarOccultList(date)
     }
 
     fun getLunarOccultList(): Flow<List<Occult>> {

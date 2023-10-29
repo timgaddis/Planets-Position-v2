@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -41,6 +42,16 @@ class SettingsFragment : Fragment() {
         viewModel.setDecIndex(settings.getInt("decIndex", 0))
         viewModel.setAzIndex(settings.getInt("azIndex", 0))
         viewModel.setAltIndex(settings.getInt("altIndex", 0))
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    navController.popBackStack(R.id.nav_main, false)
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            callback
+        )
     }
 
     override fun onCreateView(

@@ -57,10 +57,6 @@ class ManualLocationDialogViewModel(
         cityID = c
     }
 
-    fun getCityID(): Int {
-        return cityID
-    }
-
     companion object {
         val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")

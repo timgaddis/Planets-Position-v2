@@ -52,13 +52,22 @@
     <!--  Material Date Picker  -->
     <style name="MaterialCalendarTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
         <item name="colorPrimary">@color/button_back</item>
-        <item name="colorSurface">@color/main_back</item>
-        <item name="colorOnSurface">@color/text_color</item>
         <item name="android:textColor">@color/alt_text_color</item>
         <item name="materialCalendarHeaderTitle">@style/PickerHeader</item>
+        <item name="materialCalendarHeaderSelection">@style/SelectedDate</item>
+        <item name="materialCalendarHeaderToggleButton">@style/KeyboardSwitch</item>
         <item name="materialCalendarStyle">@style/DefaultCalendarStyle</item>
         <item name="buttonBarPositiveButtonStyle">@style/TextButton</item>
         <item name="buttonBarNegativeButtonStyle">@style/TextButton</item>
+    </style>
+
+    <style name="SelectedDate" parent="Widget.MaterialComponents.MaterialCalendar.HeaderSelection">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.HeadlineLarge</item>
+    </style>
+
+    <style name="KeyboardSwitch" parent="Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton">
+        <item name="android:tint">@color/text_color</item>
     </style>
 
     <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
@@ -67,10 +76,11 @@
 
     <style name="DefaultCalendarStyle" parent="Widget.MaterialComponents.MaterialCalendar">
         <item name="daySelectedStyle">@style/DefaultDaySelectedStyle</item>
+        <item name="backgroundTint">@color/main_back</item>
     </style>
 
     <style name="DefaultDaySelectedStyle" parent="Widget.MaterialComponents.MaterialCalendar.Day.Selected">
-        <item name="itemFillColor">@color/jupiter_moon4</item>
+        <item name="itemFillColor">@color/text_link_color</item>
         <item name="itemTextColor">@color/text_color</item>
     </style>
 
@@ -89,7 +99,7 @@
     <!--  Clock face -->
     <style name="TimePicker.Clock" parent="Widget.MaterialComponents.TimePicker.Clock">
         <item name="clockFaceBackgroundColor">@color/colorPrimary</item>
-        <item name="clockHandColor">@color/jupiter_moon4</item>
+        <item name="clockHandColor">@color/text_link_color</item>
         <item name="clockNumberTextColor">@color/text_color</item>
     </style>
 

@@ -25,6 +25,7 @@ import planets.position.R
 import planets.position.database.solar.Solar
 import planets.position.databinding.FragmentSolarEclipseBinding
 import java.util.Calendar
+import java.util.TimeZone
 
 class SolarEclipseFragment : Fragment() {
 
@@ -136,10 +137,19 @@ class SolarEclipseFragment : Fragment() {
                                 .build()
                         datePicker.show(parentFragmentManager, datePicker.toString())
                         datePicker.addOnPositiveButtonClickListener {
-                            val c: Calendar = Calendar.getInstance()
-                            c.clear()
-                            c.timeInMillis = datePicker.selection!!.toLong()
-                            lastUpdate = c.timeInMillis
+                            val selectedUtc = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+                            selectedUtc.timeInMillis = it
+                            val selectedLocal = Calendar.getInstance()
+                            selectedLocal.clear()
+                            selectedLocal.set(
+                                selectedUtc.get(Calendar.YEAR),
+                                selectedUtc.get(Calendar.MONTH),
+                                selectedUtc.get(Calendar.DAY_OF_MONTH),
+                                0,
+                                0,
+                                0
+                            )
+                            lastUpdate = selectedLocal.timeInMillis
                             saveSettings()
                             launchTask(lastUpdate, 0)
                         }

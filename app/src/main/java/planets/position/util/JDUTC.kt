@@ -1,6 +1,5 @@
 package planets.position.util
 
-import android.util.Log
 import java.util.Calendar
 
 class JDUTC {
@@ -69,27 +68,5 @@ class JDUTC {
             dateArr[5].toInt()
         utc[Calendar.MILLISECOND] = (dateArr[6].toDouble() * 1000).toInt()
         return utc.timeInMillis
-    }
-
-    /**
-     * Returns the the current time in UT1 and TT Jullian format.
-     *
-     * @param offset The UTC offset in minutes.
-     * @return Double array containing the times with [0]=TT and [1]=UT1.
-     */
-    fun getCurrentTime(offset: Double): DoubleArray? {
-        val time: DoubleArray?
-        val c: Calendar = Calendar.getInstance()
-        // convert local time to utc
-        c.add(Calendar.MINUTE, (offset * -1).toInt())
-        time = utcjd(
-            c[Calendar.MONTH] + 1, c[Calendar.DAY_OF_MONTH],
-            c[Calendar.YEAR], c[Calendar.HOUR_OF_DAY],
-            c[Calendar.MINUTE], c[Calendar.SECOND].toDouble()
-        )
-        if (time == null) {
-            Log.e("JDUTC getCurrentTime", "utcjd error")
-        }
-        return time
     }
 }

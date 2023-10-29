@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "worldcities")
 data class WorldCity(
-    @PrimaryKey()
+    @PrimaryKey
     var _id: Int,
     var city: String,
     var lat: Double,

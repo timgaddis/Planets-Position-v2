@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Planets Position</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_desc">Navigation header</string>
     <!-- Action Bar/Toolbar -->
     <string name="action_settings">Settings</string>
     <string name="action_about">About</string>
@@ -92,24 +89,6 @@
     <string name="lo_moon">Moon Position</string>
     <string name="lo_no">Occultation not visible locally</string>
     <string name="lo_dialog">Calculating occultations,\nplease wait…</string>
-    <!-- Moons views -->
-    <string name="jupiter_moon0">Jupiter</string>
-    <string name="jupiter_moon1">Io</string>
-    <string name="jupiter_moon2">Europa</string>
-    <string name="jupiter_moon3">Ganymede</string>
-    <string name="jupiter_moon4">Callisto</string>
-    <string name="saturn_moon0">Saturn</string>
-    <string name="saturn_moon1">Mimas</string>
-    <string name="saturn_moon2">Enceladus</string>
-    <string name="saturn_moon3">Tethys</string>
-    <string name="saturn_moon4">Dione</string>
-    <string name="saturn_moon5">Rhea</string>
-    <string name="saturn_moon6">Titan</string>
-    <string name="saturn_moon7">Hyperion</string>
-    <string name="saturn_moon8">Iapetus</string>
-    <string name="radio_view1">Direct\nView</string>
-    <string name="radio_view2">Inverted\nView</string>
-    <string name="radio_view3">Mirror\nReversed</string>
     <!-- Screen reader strings -->
     <string name="screen_country">Country Selection</string>
     <string name="screen_state">State Selection</string>
@@ -123,14 +102,11 @@
     <string name="permission_reason">This permission is to save your location for use
         in calculating local planetary events.</string>
     <string name="alert_manual">Manual</string>
-    <string name="copy_dialog">Copying files.\nPlease wait…</string>
     <string name="wup_desc">Planet Symbol</string>
     <string name="title_activity_solar_eclipse_map">Solar Eclipse Map</string>
     <string name="no_location_detected">
         No location detected. Make sure location is enabled on the device.
     </string>
-    <string name="location_canceled">The location request was canceled</string>
     <string name="location_denied">The location request was denied</string>
-    <string name="location_required">The location permission needs to be enabled to fetch the location.</string>
     <string name="gps_string">Searching for GPS location…</string>
 </resources>

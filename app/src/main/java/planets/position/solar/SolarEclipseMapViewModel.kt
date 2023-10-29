@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 
 class SolarEclipseMapViewModel : ViewModel() {
 
-    var path = MutableLiveData<List<LatLng>>()
+    private var path = MutableLiveData<List<LatLng>>()
 
     companion object {
         // load c library

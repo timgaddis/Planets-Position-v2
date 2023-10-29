@@ -32,6 +32,7 @@ import java.text.DecimalFormat
 import java.util.Calendar
 import java.util.GregorianCalendar
 import java.util.Locale
+import java.util.TimeZone
 
 class SkyPositionFragment : Fragment() {
 
@@ -131,10 +132,6 @@ class SkyPositionFragment : Fragment() {
                 updateButtons()
                 val gc = loadDateTime(false)
                 skyPositionViewModel.saveTime(gc.timeInMillis / 1000L)
-//                Log.d(
-//                    "PlanetsPosition",
-//                    "onTimeSet hour:${timePicker.hour} minute:${timePicker.minute}"
-//                )
             }
         }
 
@@ -147,19 +144,25 @@ class SkyPositionFragment : Fragment() {
                     .build()
             datePicker.show(parentFragmentManager, datePicker.toString())
             datePicker.addOnPositiveButtonClickListener {
-                val c: Calendar = Calendar.getInstance()
-                c.clear()
-                c.timeInMillis = datePicker.selection!!.toLong()
-                skyYear = c[Calendar.YEAR]
-                skyMonth = c[Calendar.MONTH] + 1
-                skyDay = c[Calendar.DAY_OF_MONTH]
+                val selectedUtc = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+                selectedUtc.timeInMillis = it
+                val selectedLocal = Calendar.getInstance()
+                selectedLocal.clear()
+                selectedLocal.set(
+                    selectedUtc.get(Calendar.YEAR),
+                    selectedUtc.get(Calendar.MONTH),
+                    selectedUtc.get(Calendar.DAY_OF_MONTH),
+                    0,
+                    0,
+                    0
+                )
+                skyYear = selectedLocal[Calendar.YEAR]
+                skyMonth = selectedLocal[Calendar.MONTH]
+                skyDay = selectedLocal[Calendar.DAY_OF_MONTH]
                 saveSettings()
                 updateButtons()
                 val gc = loadDateTime(false)
                 skyPositionViewModel.saveTime(gc.timeInMillis / 1000L)
-                Log.d("Planets Position", "onDateSet1:${it}")
-//                Log.d("Planets Position", "onDateSet2:${datePicker.selection!!.toLong()}")
-//                Log.d("PlanetsPosition", "onDateSet year:${c[Calendar.YEAR]}")
             }
         }
 
@@ -208,15 +211,6 @@ class SkyPositionFragment : Fragment() {
         val gc = loadDateTime(false)
         skyPositionViewModel.saveTime(gc.timeInMillis / 1000L)
         skyPositionViewModel.setPlanet(planetNum)
-
-//        if (g[1] < -90) {
-//            navController.navigate(R.id.nav_location_dialog)
-//        } else {
-//            val gc = loadDateTime(false)
-//            skyPositionViewModel.saveTime(gc.timeInMillis / 1000L)
-//            updateButtons()
-//            skyPositionViewModel.setPlanet(planetNum)
-//        }
 
         return root
     }
