@@ -17,9 +17,6 @@ interface LunarDAO {
     @Query("SELECT * FROM lunar_table WHERE id = :id")
     fun getLunarEclipse(id: Int): Flow<Lunar>
 
-    @Query("SELECT * FROM lunar_table WHERE penumbralBegin >= :date ORDER BY penumbralBegin")
-    fun getLunarEclipseList(date: Double): Flow<List<Lunar>>
-
     @Query("SELECT * FROM lunar_table ORDER BY penumbralBegin")
     fun getLunarEclipseList(): Flow<List<Lunar>>
 
@@ -37,9 +34,6 @@ interface LunarDAO {
 
     @Query("SELECT * FROM occult_table WHERE id = :id")
     fun getLunarOccult(id: Int): Flow<Occult>
-
-    @Query("SELECT * FROM occult_table WHERE globalBegin >= :date ORDER BY globalBegin")
-    fun getLunarOccultList(date: Double): Flow<List<Occult>>
 
     @Query("SELECT * FROM occult_table ORDER BY occultPlanet, globalBegin")
     fun getLunarOccultList(): Flow<List<Occult>>

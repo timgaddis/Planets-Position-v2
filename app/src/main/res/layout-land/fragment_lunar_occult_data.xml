@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lo_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_back">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lo_main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/lo_guide4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/lo_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toStartOf="@+id/lo_guide4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lo_planet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/lo_guide4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/lo_view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/divider_color"
+            app:layout_constraintTop_toBottomOf="@+id/lo_date" />
+
+        <TextView
+            android:id="@+id/lo_times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/lo_times"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lo_view3" />
+
+        <TextView
+            android:id="@+id/lo_local_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/alt_text_color"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lo_times" />
+
+        <TextView
+            android:id="@+id/lo_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/lo_start"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toStartOf="@+id/lo_max"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lo_local_time" />
+
+        <TextView
+            android:id="@+id/lo_start_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/lo_start"
+            app:layout_constraintStart_toStartOf="@+id/lo_start"
+            app:layout_constraintTop_toBottomOf="@+id/lo_start" />
+
+        <TextView
+            android:id="@+id/lo_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/lo_max"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toStartOf="@+id/lo_end"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lo_start"
+            app:layout_constraintTop_toBottomOf="@+id/lo_local_time" />
+
+        <TextView
+            android:id="@+id/lo_max_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/lo_max"
+            app:layout_constraintStart_toStartOf="@+id/lo_max"
+            app:layout_constraintTop_toBottomOf="@+id/lo_max" />
+
+        <TextView
+            android:id="@+id/lo_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/lo_end"
+            android:textColor="@color/alt_text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lo_max"
+            app:layout_constraintTop_toBottomOf="@+id/lo_local_time" />
+
+        <TextView
+            android:id="@+id/lo_end_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="@+id/lo_end"
+            app:layout_constraintStart_toStartOf="@+id/lo_end"
+            app:layout_constraintTop_toBottomOf="@+id/lo_end" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lo_moon_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/lo_start_text">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/lo_guide5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/lo_moonrise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/ecl_moonrise"
+                android:textColor="@color/alt_text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toStartOf="@+id/lo_guide5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lo_moonrise_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toEndOf="@+id/lo_moonrise"
+                app:layout_constraintStart_toStartOf="@+id/lo_moonrise"
+                app:layout_constraintTop_toBottomOf="@+id/lo_moonrise" />
+
+            <TextView
+                android:id="@+id/lo_moonset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/ecl_moonset"
+                android:textColor="@color/alt_text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lo_guide5"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lo_moonset_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toEndOf="@+id/lo_moonset"
+                app:layout_constraintStart_toStartOf="@+id/lo_moonset"
+                app:layout_constraintTop_toBottomOf="@+id/lo_moonset" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/lo_view4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/divider_color"
+            app:layout_constraintTop_toBottomOf="@+id/lo_moon_layout" />
+
+        <TextView
+            android:id="@+id/lo_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/lo_data"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/label_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lo_view4" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lo_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lo_data">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/lo_guide6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/lo_moon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/lo_moon"
+                android:textColor="@color/alt_text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/loStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/lo_start"
+                android:textColor="@color/alt_text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toStartOf="@+id/lo_guide6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lo_moon" />
+
+            <TextView
+                android:id="@+id/loEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/lo_end"
+                android:textColor="@color/alt_text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lo_guide6"
+                app:layout_constraintTop_toBottomOf="@+id/lo_moon" />
+
+            <TextView
+                android:id="@+id/lo_moons_az"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/data_az"
+                android:textColor="@color/alt_text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toStartOf="@+id/lo_moons_alt"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loStart" />
+
+            <TextView
+                android:id="@+id/lo_moons_az_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toEndOf="@+id/lo_moons_az"
+                app:layout_constraintStart_toStartOf="@+id/lo_moons_az"
+                app:layout_constraintTop_toBottomOf="@+id/lo_moons_az" />
+
+            <TextView
+                android:id="@+id/lo_moons_alt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/data_alt"
+                android:textColor="@color/alt_text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toStartOf="@+id/lo_guide6"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/lo_moons_az"
+                app:layout_constraintTop_toBottomOf="@+id/loStart" />
+
+            <TextView
+                android:id="@+id/lo_moons_alt_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toEndOf="@+id/lo_moons_alt"
+                app:layout_constraintStart_toStartOf="@+id/lo_moons_alt"
+                app:layout_constraintTop_toBottomOf="@+id/lo_moons_alt" />
+
+            <TextView
+                android:id="@+id/lo_moone_az"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/data_az"
+                android:textColor="@color/alt_text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toStartOf="@+id/lo_moone_alt"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toEndOf="@+id/lo_guide6"
+                app:layout_constraintStart_toStartOf="@+id/lo_guide6"
+                app:layout_constraintTop_toBottomOf="@+id/loEnd" />
+
+            <TextView
+                android:id="@+id/lo_moone_az_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toEndOf="@+id/lo_moone_az"
+                app:layout_constraintStart_toStartOf="@+id/lo_moone_az"
+                app:layout_constraintTop_toBottomOf="@+id/lo_moone_az" />
+
+            <TextView
+                android:id="@+id/lo_moone_alt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/data_alt"
+                android:textColor="@color/alt_text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/lo_moone_az"
+                app:layout_constraintTop_toBottomOf="@+id/loEnd" />
+
+            <TextView
+                android:id="@+id/lo_moone_alt_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/label_text"
+                app:layout_constraintEnd_toEndOf="@+id/lo_moone_alt"
+                app:layout_constraintStart_toStartOf="@+id/lo_moone_alt"
+                app:layout_constraintTop_toBottomOf="@+id/lo_moone_alt" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/lo_no_visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/lo_no"
+            android:textColor="@color/alert_color"
+            android:textSize="@dimen/label_up_text"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lo_data" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
