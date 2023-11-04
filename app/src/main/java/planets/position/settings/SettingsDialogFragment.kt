@@ -20,12 +20,12 @@
 
 package planets.position.settings
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import planets.position.R
 
 class SettingsDialogFragment : DialogFragment() {
@@ -49,20 +49,16 @@ class SettingsDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return activity?.let {
-            val builder = AlertDialog.Builder(it, R.style.LocDialogTheme)
-            builder.setTitle(textID)
-                .setItems(
-                    arrayID
-                ) { _, which ->
-                    val s: String = resources.getStringArray(arrayID)[which]
-                    val b = Bundle()
-                    b.putInt("settingID", index)
-                    b.putInt("stringID", which)
-                    b.putString("settingString", s)
-                    navController.navigate(R.id.action_nav_settings_dialog_to_nav_settings, b)
-                }
-            builder.create()
-        } ?: throw IllegalStateException("Activity cannot be null")
+        return MaterialAlertDialogBuilder(requireContext(),R.style.CustomMaterialDialog)
+            .setTitle(textID)
+            .setItems(arrayID) { _, which ->
+                val s: String = resources.getStringArray(arrayID)[which]
+                val b = Bundle()
+                b.putInt("settingID", index)
+                b.putInt("stringID", which)
+                b.putString("settingString", s)
+                navController.navigate(R.id.action_nav_settings_dialog_to_nav_settings, b)
+            }
+            .create()
     }
 }

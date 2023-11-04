@@ -15,8 +15,8 @@ android {
         applicationId = "planets.position"
         minSdk = 24
         targetSdk = 34
-        versionCode = 50
-        versionName = "2.3"
+        versionCode = 51
+        versionName = "2.3.1"
 
         externalNativeBuild {
             cmake {

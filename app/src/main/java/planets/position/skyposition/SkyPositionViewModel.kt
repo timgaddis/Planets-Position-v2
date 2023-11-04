@@ -116,13 +116,10 @@ class SkyPositionViewModel(
             return null
         var pld: PlanetData? = null
         val tt = savedStateHandle["skyTime"] ?: 0L
-        Log.d("PlanetPosition", "computePlanet off:${off} tt:${tt}")
         val cal = Calendar.getInstance()
         cal.clear()
         cal.timeInMillis = tt * 1000L
-//        Log.d("PlanetsPosition", "computePlanet,cal1:${cal.time},${off!! * -60.0}")
         cal.add(Calendar.MINUTE, (off!! * -60.0).toInt())
-//        Log.d("PlanetsPosition", "computePlanet,cal2:${cal.time}")
         val t = jdUTC.utcjd(
             cal[Calendar.MONTH] + 1,
             cal[Calendar.DAY_OF_MONTH], cal[Calendar.YEAR],
@@ -135,12 +132,10 @@ class SkyPositionViewModel(
                 pld = pd
             }
         }
-//        Log.d("Planets Position", "computePlanet:${pld}")
         return pld
     }
 
     private suspend fun computeLocation(planetNum: Int, time: DoubleArray): PlanetData? {
-//        Log.d("Planets Position", "in computeLocation:[${time[0]},${time[1]}]")
         var ra: Double
         var t: Double
         val d: Double = time[1]
@@ -204,10 +199,8 @@ class SkyPositionViewModel(
                 modelClass: Class<T>,
                 extras: CreationExtras
             ): T {
-                // Get the Application object from extras
                 val application =
                     checkNotNull(extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])
-                // Create a SavedStateHandle for this ViewModel from extras
                 val savedStateHandle = extras.createSavedStateHandle()
 
                 return SkyPositionViewModel(

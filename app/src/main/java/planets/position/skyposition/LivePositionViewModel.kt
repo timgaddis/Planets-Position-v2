@@ -104,7 +104,6 @@ class LivePositionViewModel(
         cTime: Long,
         offset: Double
     ): PlanetData? {
-        Log.d("Planets Position", "in live computeLocation:[${time[0]},${time[1]}]")
         var ra: Double
         var t: Double
         val d: Double = time[1]

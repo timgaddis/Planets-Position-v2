@@ -106,7 +106,6 @@ class RiseSetViewModel(
     fun setOffset(offset: Double) {
         savedStateHandle["offset"] = offset
         val t = savedStateHandle["riseTime"] ?: 0L
-//        Log.d("PlanetsPosition", "rsViewModel t:${t}")
         val cal = Calendar.getInstance()
         cal.clear()
         cal.timeInMillis = t

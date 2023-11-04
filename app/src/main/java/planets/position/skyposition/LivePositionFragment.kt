@@ -99,7 +99,6 @@ class LivePositionFragment : Fragment() {
         belowText = binding.liveBelowText
 
         livePositionViewModel.getPlanetData().observe(viewLifecycleOwner) {
-//            Log.d("PlanetsPosition", "getPlanetData observer:$it")
             if (it != null)
                 updatePlanetData(it)
         }

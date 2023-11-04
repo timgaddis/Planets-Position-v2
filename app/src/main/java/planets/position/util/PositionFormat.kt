@@ -49,7 +49,6 @@ class PositionFormat(activity: Activity) {
         val ras: Double
         val rah: Int
         val ram: Int
-//        Log.d("PlanetsPosition", "formatRA:" + settings.getString("ra_format", "*"))
         when (settings.getString("ra_format", "HH MM SS")) {
             "HH MM SS" -> {
                 ra = value
@@ -91,7 +90,6 @@ class PositionFormat(activity: Activity) {
         val decd: Int
         val decm: Int
         val decSign: Char
-//        Log.d("PlanetsPosition", "formatDec:" + settings.getString("dec_format", "*"))
         when (settings.getString("dec_format", "DD MM SS")) {
             "DD MM SS" -> {
                 dec = value
@@ -160,8 +158,6 @@ class PositionFormat(activity: Activity) {
         val azd: Int
         val azm: Int
         val locale = Locale.getDefault()
-//        Log.d("PlanetsPosition", "formatAZ-s:" + settings.getString("az_format", "*"))
-//        Log.d("PlanetsPosition", "formatAZ-i:" + settings.getInt("az_format", -1))
         when (settings.getString("az_format", "DDD MM SS")) {
             "DDD MM SS" -> {
                 az = value
@@ -229,8 +225,6 @@ class PositionFormat(activity: Activity) {
         val alts: Double
         val altd: Int
         val altm: Int
-//        Log.d("PlanetsPosition", "formatALT-s:" + settings.getString("alt_format", "*"))
-//        Log.d("PlanetsPosition", "formatALT-i:" + settings.getInt("alt_format", -2))
         when (settings.getString("alt_format", "DD MM SS")) {
             "DD MM SS" -> {
                 alt = value

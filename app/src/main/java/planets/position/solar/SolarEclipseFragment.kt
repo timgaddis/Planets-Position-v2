@@ -101,7 +101,6 @@ class SolarEclipseFragment : Fragment() {
             it.let {
                 firstRun = false
                 saveSettings()
-//                Log.d("PlanetsPosition", "solar list observer:${it.size}")
                 solarAdapter.submitList(it)
                 if (it.size == 10) {
                     solarRecyclerView.visibility = VISIBLE

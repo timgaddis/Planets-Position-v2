@@ -22,7 +22,6 @@ package planets.position.skyposition
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -117,10 +116,9 @@ class SkyPositionFragment : Fragment() {
     ): View {
         _binding = FragmentSkyPositionBinding.inflate(inflater, container, false)
         val root: View = binding.root
-//        Log.d("PlanetsPosition", "fragment onCreateView")
         timeButton = binding.timeButton
         dateButton = binding.dateButton
-        planetButton = binding.planetButton!!
+        planetButton = binding.planetButton
         azText = binding.posAzText
         altText = binding.posAltText
         raText = binding.posRaText
@@ -196,7 +194,6 @@ class SkyPositionFragment : Fragment() {
                     val df = DecimalFormat("##.#")
                     df.roundingMode = RoundingMode.DOWN
                     offset = df.format(it.gmt_offset / 3600.0).toDouble()
-                    Log.d("PlanetsPosition", "getZone observer:off${offset}")
                     saveSettings()
                     skyPositionViewModel.setOffset(offset)
                 }
@@ -240,7 +237,6 @@ class SkyPositionFragment : Fragment() {
         if (arguments?.containsKey("planet") == true) {
             // planet list
             planetNum = requireArguments().getInt("planet", 0)
-            Log.d("PlanetsPosition", "onViewCreated planet:${planetNum}")
             saveSettings()
             updateButtons()
             skyPositionViewModel.setPlanet(planetNum)
@@ -311,14 +307,12 @@ class SkyPositionFragment : Fragment() {
     // updates the date and time on the Buttons
     private fun updateButtons() {
         val gc = loadDateTime(false)
-        Log.d("PlanetsPosition", "in updateButtons:${gc.timeInMillis}")
         dateButton.text = mDateFormat.format(gc.time)
         timeButton.text = mTimeFormat.format(gc.time)
         planetButton.text = planetNames[planetNum]
     }
 
     private fun updatePlanetData(p: PlanetData) {
-//        Log.d("PlanetsPosition", "in updatePlanetData:${offset}")
         val utc: Calendar = Calendar.getInstance()
         utc.clear()
 

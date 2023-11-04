@@ -20,12 +20,12 @@
 
 package planets.position.location
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import planets.position.R
 
 class TimeZoneDialog : DialogFragment() {
@@ -40,20 +40,16 @@ class TimeZoneDialog : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return activity?.let {
-            val builder = AlertDialog.Builder(it, R.style.LocDialogTheme)
-            builder.setTitle(R.string.loc_tz_title)
-                .setItems(
-                    R.array.time_zones
-                ) { _, which ->
-                    val tz: String = resources.getStringArray(R.array.time_zones)[which]
-                    val b = Bundle()
-                    b.putString("timezone", tz)
-                    navController.navigate(
-                        R.id.action_nav_timezone_dialog_to_nav_location, b
-                    )
-                }
-            builder.create()
-        } ?: throw IllegalStateException("Activity cannot be null")
+        return MaterialAlertDialogBuilder(requireContext(),R.style.CustomMaterialDialog)
+            .setTitle(R.string.loc_tz_title)
+            .setItems(R.array.time_zones) { _, which ->
+                val tz: String = resources.getStringArray(R.array.time_zones)[which]
+                val b = Bundle()
+                b.putString("timezone", tz)
+                navController.navigate(
+                    R.id.action_nav_timezone_dialog_to_nav_location, b
+                )
+            }
+            .create()
     }
 }

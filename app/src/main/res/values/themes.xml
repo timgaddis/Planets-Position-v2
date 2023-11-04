@@ -38,9 +38,10 @@
 
     <style name="Theme.PlanetsPosition.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="LocDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="colorAccent">@color/text_color</item>
+    <style name="CustomMaterialDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="android:background">@color/main_back</item>
+        <item name="colorOnSurface">@color/text_color</item>
+        <item name="colorPrimary">@color/text_color</item>
     </style>
 
     <style name="SettingsHeader" parent="@android:style/TextAppearance">

@@ -157,9 +157,7 @@ class LocationFragment : Fragment() {
 
         locationViewModel.getCity()?.observe(viewLifecycleOwner) {
             it.let {
-//                Log.d("PlanetsPosition", "in city observe:$it")
                 if (it != null) {
-//                    Log.d("PlanetsPosition", "in city observe:${it.timezone}")
                     latitude = it.lat
                     longitude = it.lng
                     altitude = it.altitude

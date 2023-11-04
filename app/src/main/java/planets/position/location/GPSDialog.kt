@@ -22,7 +22,6 @@ package planets.position.location
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.app.Dialog
 import android.content.pm.PackageManager
 import android.location.Location
@@ -41,6 +40,7 @@ import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationToken
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.google.android.gms.tasks.OnTokenCanceledListener
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import planets.position.R
 
 class GPSDialog : DialogFragment() {
@@ -65,12 +65,10 @@ class GPSDialog : DialogFragment() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
     }
 
-    @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val alert = AlertDialog.Builder(activity, R.style.LocDialogTheme)
-        val inflaterLat = requireActivity().layoutInflater
-        inflaterLat.inflate(R.layout.fragment_gpsdialog, null)
-        return alert.create()
+        return MaterialAlertDialogBuilder(requireContext())
+            .setView(R.layout.fragment_gpsdialog)
+            .create()
     }
 
     override fun onStart() {
@@ -97,7 +95,6 @@ class GPSDialog : DialogFragment() {
                     // location not found
                     val b = Bundle()
                     b.putInt("GPS", 200)
-//                    navController.navigate(R.id.nav_location, b)
                     navController.navigate(R.id.action_nav_gps_dialog_to_nav_location, b)
                 } else {
                     val b = Bundle()
@@ -106,7 +103,6 @@ class GPSDialog : DialogFragment() {
                     b.putDouble("longitude", location.longitude)
                     b.putLong("last_update", location.time)
                     b.putDouble("altitude", location.altitude)
-//                    navController.navigate(R.id.nav_location, b)
                     navController.navigate(R.id.action_nav_gps_dialog_to_nav_location, b)
                 }
             }

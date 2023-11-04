@@ -323,14 +323,12 @@ class SolarEclipseDataFragment : Fragment() {
                 seEndText.text = ""
             }
             temp = solar.sunAz
-//            Log.d("PlanetsPosition", "sunAZ:${temp}")
             if (temp > 0) {
                 seAzText.text = pf.formatAZ(temp)
             } else {
                 seAzText.text = ""
             }
             temp = solar.sunAlt
-//            Log.d("PlanetsPosition", "sunALT:${temp}")
             if (temp > 0) {
                 seAltText.text = pf.formatALT(temp)
             } else {
