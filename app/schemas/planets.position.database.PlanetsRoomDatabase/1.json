@@ -1,0 +1,610 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "189b7990ed351cdf581f582ac13ad76f",
+    "entities": [
+      {
+        "tableName": "planets_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cID` INTEGER NOT NULL, `cName` TEXT, `cNumber` INTEGER NOT NULL, `cRise` INTEGER NOT NULL, `cRA` REAL NOT NULL, `cDec` REAL NOT NULL, `cAz` REAL NOT NULL, `cAlt` REAL NOT NULL, `cDistance` REAL NOT NULL, `cMagnitude` REAL NOT NULL, `cSetTime` REAL NOT NULL, `cRiseTime` REAL NOT NULL, `cTransit` REAL NOT NULL, PRIMARY KEY(`cID`))",
+        "fields": [
+          {
+            "fieldPath": "cID",
+            "columnName": "cID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cName",
+            "columnName": "cName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cNumber",
+            "columnName": "cNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cRise",
+            "columnName": "cRise",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cRA",
+            "columnName": "cRA",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cDec",
+            "columnName": "cDec",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cAz",
+            "columnName": "cAz",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cAlt",
+            "columnName": "cAlt",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cDistance",
+            "columnName": "cDistance",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cMagnitude",
+            "columnName": "cMagnitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cSetTime",
+            "columnName": "cSetTime",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cRiseTime",
+            "columnName": "cRiseTime",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cTransit",
+            "columnName": "cTransit",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "cID"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "solar_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `localType` INTEGER NOT NULL, `globalType` INTEGER NOT NULL, `local` INTEGER NOT NULL, `offset` REAL NOT NULL, `localMax` REAL NOT NULL, `localFirst` REAL NOT NULL, `localSecond` REAL NOT NULL, `localThird` REAL NOT NULL, `localFourth` REAL NOT NULL, `sunRise` REAL NOT NULL, `sunSet` REAL NOT NULL, `ratio` REAL NOT NULL, `fractionCovered` REAL NOT NULL, `sunAz` REAL NOT NULL, `sunAlt` REAL NOT NULL, `localMag` REAL NOT NULL, `sarosNum` INTEGER NOT NULL, `sarosMemNum` INTEGER NOT NULL, `moonAz` REAL NOT NULL, `moonAlt` REAL NOT NULL, `globalMax` REAL NOT NULL, `globalBegin` REAL NOT NULL, `globalEnd` REAL NOT NULL, `globalTotalBegin` REAL NOT NULL, `globalTotalEnd` REAL NOT NULL, `globalCenterBegin` REAL NOT NULL, `globalCenterEnd` REAL NOT NULL, `eclipseDate` REAL NOT NULL, `eclipseType` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localType",
+            "columnName": "localType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalType",
+            "columnName": "globalType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "local",
+            "columnName": "local",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "offset",
+            "columnName": "offset",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localMax",
+            "columnName": "localMax",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localFirst",
+            "columnName": "localFirst",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localSecond",
+            "columnName": "localSecond",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localThird",
+            "columnName": "localThird",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localFourth",
+            "columnName": "localFourth",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sunRise",
+            "columnName": "sunRise",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sunSet",
+            "columnName": "sunSet",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ratio",
+            "columnName": "ratio",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fractionCovered",
+            "columnName": "fractionCovered",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sunAz",
+            "columnName": "sunAz",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sunAlt",
+            "columnName": "sunAlt",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localMag",
+            "columnName": "localMag",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sarosNum",
+            "columnName": "sarosNum",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sarosMemNum",
+            "columnName": "sarosMemNum",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonAz",
+            "columnName": "moonAz",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonAlt",
+            "columnName": "moonAlt",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalMax",
+            "columnName": "globalMax",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalBegin",
+            "columnName": "globalBegin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalEnd",
+            "columnName": "globalEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalTotalBegin",
+            "columnName": "globalTotalBegin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalTotalEnd",
+            "columnName": "globalTotalEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalCenterBegin",
+            "columnName": "globalCenterBegin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalCenterEnd",
+            "columnName": "globalCenterEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eclipseDate",
+            "columnName": "eclipseDate",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eclipseType",
+            "columnName": "eclipseType",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "lunar_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `localType` INTEGER NOT NULL, `globalType` INTEGER NOT NULL, `local` INTEGER NOT NULL, `offset` REAL NOT NULL, `umbralMag` REAL NOT NULL, `penumbralMag` REAL NOT NULL, `moonAz` REAL NOT NULL, `moonAlt` REAL NOT NULL, `moonRise` REAL NOT NULL, `moonSet` REAL NOT NULL, `sarosNum` INTEGER NOT NULL, `sarosMemNum` INTEGER NOT NULL, `maxEclipse` REAL NOT NULL, `penumbralBegin` REAL NOT NULL, `penumbralEnd` REAL NOT NULL, `partialBegin` REAL NOT NULL, `partialEnd` REAL NOT NULL, `totalBegin` REAL NOT NULL, `totalEnd` REAL NOT NULL, `eclipseDate` REAL NOT NULL, `eclipseType` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localType",
+            "columnName": "localType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalType",
+            "columnName": "globalType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "local",
+            "columnName": "local",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "offset",
+            "columnName": "offset",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "umbralMag",
+            "columnName": "umbralMag",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "penumbralMag",
+            "columnName": "penumbralMag",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonAz",
+            "columnName": "moonAz",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonAlt",
+            "columnName": "moonAlt",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonRise",
+            "columnName": "moonRise",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonSet",
+            "columnName": "moonSet",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sarosNum",
+            "columnName": "sarosNum",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sarosMemNum",
+            "columnName": "sarosMemNum",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "maxEclipse",
+            "columnName": "maxEclipse",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "penumbralBegin",
+            "columnName": "penumbralBegin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "penumbralEnd",
+            "columnName": "penumbralEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "partialBegin",
+            "columnName": "partialBegin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "partialEnd",
+            "columnName": "partialEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalBegin",
+            "columnName": "totalBegin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalEnd",
+            "columnName": "totalEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eclipseDate",
+            "columnName": "eclipseDate",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eclipseType",
+            "columnName": "eclipseType",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "occult_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `localType` INTEGER NOT NULL, `globalType` INTEGER NOT NULL, `local` INTEGER NOT NULL, `offset` REAL NOT NULL, `localMax` REAL NOT NULL, `localFirst` REAL NOT NULL, `localSecond` REAL NOT NULL, `localThird` REAL NOT NULL, `localFourth` REAL NOT NULL, `moonAzStart` REAL NOT NULL, `moonAltStart` REAL NOT NULL, `moonAzEnd` REAL NOT NULL, `moonAltEnd` REAL NOT NULL, `moonRise` REAL NOT NULL, `moonSet` REAL NOT NULL, `globalMax` REAL NOT NULL, `globalBegin` REAL NOT NULL, `globalEnd` REAL NOT NULL, `globalTotalBegin` REAL NOT NULL, `globalTotalEnd` REAL NOT NULL, `globalCenterBegin` REAL NOT NULL, `globalCenterEnd` REAL NOT NULL, `occultDate` REAL NOT NULL, `occultPlanet` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localType",
+            "columnName": "localType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalType",
+            "columnName": "globalType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "local",
+            "columnName": "local",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "offset",
+            "columnName": "offset",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localMax",
+            "columnName": "localMax",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localFirst",
+            "columnName": "localFirst",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localSecond",
+            "columnName": "localSecond",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localThird",
+            "columnName": "localThird",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localFourth",
+            "columnName": "localFourth",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonAzStart",
+            "columnName": "moonAzStart",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonAltStart",
+            "columnName": "moonAltStart",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonAzEnd",
+            "columnName": "moonAzEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonAltEnd",
+            "columnName": "moonAltEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonRise",
+            "columnName": "moonRise",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moonSet",
+            "columnName": "moonSet",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalMax",
+            "columnName": "globalMax",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalBegin",
+            "columnName": "globalBegin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalEnd",
+            "columnName": "globalEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalTotalBegin",
+            "columnName": "globalTotalBegin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalTotalEnd",
+            "columnName": "globalTotalEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalCenterBegin",
+            "columnName": "globalCenterBegin",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "globalCenterEnd",
+            "columnName": "globalCenterEnd",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "occultDate",
+            "columnName": "occultDate",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "occultPlanet",
+            "columnName": "occultPlanet",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '189b7990ed351cdf581f582ac13ad76f')"
+    ]
+  }
+}

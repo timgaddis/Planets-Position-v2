@@ -2,7 +2,7 @@
  * Planet's Position
  * A program to calculate the position of the planets in the night sky
  * based on a given location on Earth.
- * Copyright (c) 2023 Tim Gaddis
+ * Copyright (c) 2023-2024 Tim Gaddis
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -162,7 +162,7 @@ class LocationFragment : Fragment() {
                     longitude = it.lng
                     altitude = it.altitude
                     zoneName = it.timezone
-                    lastUpdate = Calendar.getInstance().timeInMillis
+                    lastUpdate = Calendar.getInstance().timeInMillis / 1000
                     locationViewModel.saveZone(zoneName, lastUpdate)
                 }
             }
@@ -221,7 +221,7 @@ class LocationFragment : Fragment() {
                     latitude = requireArguments().getDouble("latitude")
                     longitude = requireArguments().getDouble("longitude")
                     altitude = requireArguments().getDouble("altitude")
-                    lastUpdate = requireArguments().getLong("last_update")
+                    lastUpdate = requireArguments().getLong("last_update") / 1000
                     val t = TimeZone.getDefault()
                     zoneName = t.id
                     locationViewModel.saveZone(zoneName, lastUpdate)

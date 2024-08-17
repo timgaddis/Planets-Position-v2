@@ -2,7 +2,7 @@
  * Planet's Position
  * A program to calculate the position of the planets in the night sky
  * based on a given location on Earth.
- * Copyright (c) 2023 Tim Gaddis
+ * Copyright (c) 2023-2024 Tim Gaddis
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -53,10 +53,9 @@ class SkyPositionViewModel(
     private var g = DoubleArray(3)
     private val jdUTC: JDUTC = JDUTC()
     private var riseSetTransit: RiseSetTransit
-    private var settings: SharedPreferences
+    private var settings: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(application)
 
     init {
-        settings = PreferenceManager.getDefaultSharedPreferences(application)
         g[1] = settings.getFloat("latitude", (-91.0).toFloat()).toDouble()
         g[0] = settings.getFloat("longitude", 0f).toDouble()
         g[2] = settings.getFloat("altitude", 0f).toDouble()
@@ -89,12 +88,12 @@ class SkyPositionViewModel(
         savedStateHandle["skyPlanet"] = p
     }
 
-    fun getPlanetData(): LiveData<PlanetData> {
+    fun getPlanetData(): MediatorLiveData<PlanetData?> {
 
         val off = savedStateHandle.getLiveData("offset", -13.0)
         val planet = savedStateHandle.getLiveData("skyPlanet", -1)
 
-        val result = MediatorLiveData<PlanetData>()
+        val result = MediatorLiveData<PlanetData?>()
 
         result.addSource(off) {
             result.value = computePlanet(off, planet)
