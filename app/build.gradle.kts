@@ -28,16 +28,16 @@ plugins {
 
 android {
     namespace = "planets.position"
-    compileSdk = 34
-    buildToolsVersion = "34.0.0"
-    ndkVersion = "27.0.12077973"
+    compileSdk = 35
+    buildToolsVersion = "35.0.0"
+    ndkVersion = "27.2.12479018"
 
     defaultConfig {
         applicationId = "planets.position"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 53
-        versionName = "2.3.3"
+        targetSdk = 35
+        versionCode = 54
+        versionName = "2.3.4"
 
     }
 
@@ -64,7 +64,7 @@ android {
     externalNativeBuild {
         cmake {
             path = file("src/main/cpp/CMakeLists.txt")
-            version = "3.30.2"
+            version = "3.30.5"
         }
     }
     room {
@@ -81,11 +81,11 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     // Lifecycle
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.4")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.6")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
     // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.8.3")
     // Room database
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")

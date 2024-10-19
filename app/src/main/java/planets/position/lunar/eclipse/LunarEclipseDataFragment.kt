@@ -352,8 +352,8 @@ class LunarEclipseDataFragment : Fragment() {
                 leUMag.visibility = View.GONE
                 leUMagText.visibility = View.GONE
             }
-            leSarosText.text = lunar.sarosNum.toString()
-            leSarosMText.text = lunar.sarosMemNum.toString()
+            lunar.sarosNum.toString().also { leSarosText.text = it }
+            lunar.sarosMemNum.toString().also { leSarosMText.text = it }
         } else {
             // global eclipse
             leLocalTime.setText(R.string.ecl_universal)

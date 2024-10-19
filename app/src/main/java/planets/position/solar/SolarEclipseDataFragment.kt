@@ -351,8 +351,8 @@ class SolarEclipseDataFragment : Fragment() {
                 mag = 0.0
                 seMagText.text = ""
             }
-            seSarosText.text = solar.sarosNum.toString()
-            seSarosMText.text = solar.sarosMemNum.toString()
+            solar.sarosNum.toString().also { seSarosText.text = it }
+            solar.sarosMemNum.toString().also { seSarosMText.text = it }
         } else {
             // global eclipse
             seLocalTime.setText(R.string.ecl_universal)

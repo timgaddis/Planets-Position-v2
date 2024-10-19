@@ -345,11 +345,11 @@ class LocationFragment : Fragment() {
         // Show the EditTexts
         groupText.visibility = View.GONE
         groupEdit.visibility = View.VISIBLE
-        latitudeEdit.setText(abs(latitude).toString())
+        latitudeEdit.setText("${abs(latitude)}")
         if (latitude >= 0) spinnerLat.setSelection(0) else spinnerLat.setSelection(1)
-        longitudeEdit.setText(abs(longitude).toString())
+        longitudeEdit.setText("${abs(longitude)}")
         if (longitude >= 0) spinnerLong.setSelection(0) else spinnerLong.setSelection(1)
-        elevationEdit.setText(altitude.toString())
+        elevationEdit.setText("$altitude")
         timezoneEdit.setText(zoneName)
     }
 
